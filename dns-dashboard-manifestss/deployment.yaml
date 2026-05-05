@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: dns-dashboard
-          image: your-registry/dns-dashboard:1.0.0
+          image: yagza/dns-dashboard:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -28,11 +28,11 @@ spec:
             - name: APP_HOSTS_1
               value: "github.com"
             - name: APP_HOSTS_2
-              value: "kubernetes.io"
+              value: "wood.ru"
             - name: APP_HOSTS_3
               value: "spring.io"
             - name: APP_HOSTS_4
-              value: "example.org"
+              value: "ya.ru"
             - name: SERVER_PORT
               value: "8080"
           readinessProbe:
