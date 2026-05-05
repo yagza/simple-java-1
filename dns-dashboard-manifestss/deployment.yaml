@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns-dashboard
+  labels:
+    app: dns-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dns-dashboard
+  template:
+    metadata:
+      labels:
+        app: dns-dashboard
+    spec:
+      containers:
+        - name: dns-dashboard
+          image: your-registry/dns-dashboard:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_TITLE
+              value: "DNS Dashboard in Kubernetes"
+            - name: APP_HOSTS_0
+              value: "google.com"
+            - name: APP_HOSTS_1
+              value: "github.com"
+            - name: APP_HOSTS_2
+              value: "kubernetes.io"
+            - name: APP_HOSTS_3
+              value: "spring.io"
+            - name: APP_HOSTS_4
+              value: "example.org"
+            - name: SERVER_PORT
+              value: "8080"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 20
