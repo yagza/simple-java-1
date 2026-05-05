@@ -26,7 +26,7 @@ spec:
             - name: APP_HOSTS_0
               value: "google.com"
             - name: APP_HOSTS_1
-              value: "github.com"
+              value: "svalko.org"
             - name: APP_HOSTS_2
               value: "wood.ru"
             - name: APP_HOSTS_3
