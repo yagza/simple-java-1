@@ -4,9 +4,9 @@ fullnameOverride: ""
 replicaCount: 1
 
 image:
-  repository: your-registry/dns-dashboard
+  repository: yagza/dns-dashboard
   pullPolicy: IfNotPresent
-  tag: "1.0.0"
+  tag: "latest"
 
 imagePullSecrets: []
 
@@ -36,7 +36,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: dns-dashboard.local
+    - host: dns-dashboard.my.home
       paths:
         - path: /
           pathType: Prefix
