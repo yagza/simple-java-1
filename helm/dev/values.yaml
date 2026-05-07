@@ -78,7 +78,7 @@ env:
   - name: APP_HOSTS_3
     value: "spring.io"
   - name: APP_HOSTS_4
-    value: "example.org"
+    value: "wood.ru"
 
 probes:
   readiness:
