@@ -1,0 +1,18 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: test-from-vault
+  namespace: argo-first-app
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: vault-backend
+    kind: SecretStore
+  target:
+    name: test-from-vault
+    creationPolicy: Owner
+  data:
+    - secretKey: SOME_SECRET
+      remoteRef:
+        key: apps/prod/myapp
+        property: db_password
